@@ -222,7 +222,7 @@ function WebGLRenderer( parameters = {} ) {
 
 		if ( _gl === null ) {
 
-			const contextNames = [ 'webgl2', 'webgl', 'experimental-webgl' ];
+			const contextNames = [ 'webgl', 'experimental-webgl' ];
 
 			if ( _this.isWebGL1Renderer === true ) {
 
@@ -1873,7 +1873,7 @@ function WebGLRenderer( parameters = {} ) {
 
 				} else {
 
-					extensions.get( 'WEBGL_draw_buffers' ).drawBuffersWEBGL( _currentDrawBuffers );
+					// extensions.get( 'WEBGL_draw_buffers' ).drawBuffersWEBGL( _currentDrawBuffers );
 
 				}
 

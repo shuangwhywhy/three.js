@@ -13,6 +13,12 @@ function WebGLExtensions( gl ) {
 		let extension;
 
 		switch ( name ) {
+			case 'EXT_blend_minmax':
+				extension = {
+					MIN_EXT: 32775,
+					MAX_EXT: 32776,
+				};
+				break;
 
 			case 'WEBGL_depth_texture':
 				extension = gl.getExtension( 'WEBGL_depth_texture' ) || gl.getExtension( 'MOZ_WEBGL_depth_texture' ) || gl.getExtension( 'WEBKIT_WEBGL_depth_texture' );
@@ -35,7 +41,7 @@ function WebGLExtensions( gl ) {
 
 		}
 
-		extensions[ name ] = extension;
+		extensions[ name ] = extension || null;
 
 		return extension;
 
@@ -45,8 +51,8 @@ function WebGLExtensions( gl ) {
 
 		has: function ( name ) {
 
-			return getExtension( name ) !== null;
-
+			return !!getExtension( name );
+			
 		},
 
 		init: function ( capabilities ) {
